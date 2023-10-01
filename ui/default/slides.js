@@ -95,7 +95,7 @@ function slideLabel() {
 		for (var o = 0; o < menunodes.length; o++) {
 			otext += nodeValue(menunodes[o]);
 		}
-		list.options[list.length] = new Option(n + ' : '  + otext, n);
+		list.options[list.length] = new Option(n + ' : ' + otext, n);
 	}
 }
 
@@ -125,6 +125,8 @@ function go(step) {
 		for (var i = 0; i < incrementals[snum].length; i++) {
 			removeClass(incrementals[snum][i], 'current');
 			removeClass(incrementals[snum][i], 'incremental');
+			removeClass(incrementals[snum][i], 'seen');
+			removeClass(incrementals[snum][i], 'unseen');
 		}
 	}
 	if (step != 'j') {
@@ -149,8 +151,24 @@ function go(step) {
 				addClass(incrementals[snum][i], 'incremental');
 		}
 	}
-	if (incrementals[snum].length > 0 && incpos > 0)
-		addClass(incrementals[snum][incpos - 1], 'current');
+	if (incrementals[snum].length > 0 && incpos == 0) {
+		for (var i = 0; i < incrementals[snum].length; i++) {
+			addClass(incrementals[snum][i], 'unseen');
+		}
+	}
+	if (incrementals[snum].length > 0 && incpos > 0) {
+		var incindex = incpos - 1
+
+		for (var i = 0; i < incindex; i++) {
+			addClass(incrementals[snum][i], 'seen');
+		}
+
+		addClass(incrementals[snum][incindex], 'current');
+
+		for (var i = (incindex + 1); i < incrementals[snum].length; i++) {
+			addClass(incrementals[snum][i], 'unseen');
+		}
+	}
 	ce.style.visibility = 'hidden';
 	ne.style.visibility = 'visible';
 	jl.selectedIndex = snum;
@@ -164,17 +182,35 @@ function goTo(target) {
 }
 
 function subgo(step) {
-	if (step > 0) {
-		removeClass(incrementals[snum][incpos - 1],'current');
-		removeClass(incrementals[snum][incpos], 'incremental');
-		addClass(incrementals[snum][incpos],'current');
-		incpos++;
-	} else {
-		incpos--;
-		removeClass(incrementals[snum][incpos],'current');
-		addClass(incrementals[snum][incpos], 'incremental');
-		addClass(incrementals[snum][incpos - 1],'current');
+	var incindex_current = incpos - 1
+	var incindex_next = (step > 0) ? (incindex_current + 1) : (incindex_current - 1)
+	incpos = incindex_next + 1
+
+	if ((incindex_current >= 0) && (incindex_current < incrementals[snum].length)) {
+		removeClass(incrementals[snum][incindex_current],'current');
+		addClass(incrementals[snum][incindex_current],'incremental');
+
+		if (step > 0)
+			addClass(incrementals[snum][incindex_current],'seen');
+		else
+			addClass(incrementals[snum][incindex_current],'unseen');
 	}
+
+	if ((incindex_next >= 0) && (incindex_next < incrementals[snum].length)) {
+		removeClass(incrementals[snum][incindex_next], 'incremental');
+		removeClass(incrementals[snum][incindex_next], 'seen');
+		removeClass(incrementals[snum][incindex_next], 'unseen');
+		addClass(incrementals[snum][incindex_next],'current');
+	}
+
+	scrollSlideToEnd()
+}
+
+function scrollSlideToEnd() {
+	var nid = 'slide' + snum;
+	var ne = document.getElementById(nid);
+	if (ne)
+		ne.scrollTo(0, ne.scrollHeight)
 }
 
 function toggle() {

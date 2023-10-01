@@ -12,4 +12,6 @@ body {background: #111 none 0 0 no-repeat !important; margin:0; padding:0;}
 
 /* incremental content */
 .presentation > .slide .incremental {}
+.presentation > .slide .incremental.seen {}
 .presentation > .slide .current {color: inherit !important; font-weight: bold; font-size: 1.15em; line-height: 1.15em;}
+.presentation > .slide .incremental.unseen {display: none !important;}
