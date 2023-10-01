@@ -1,0 +1,15 @@
+body {background: #111 none 0 0 no-repeat !important; margin:0; padding:0;}
+
+.layout > #header {display: none;}
+.layout > #footer {height: 1em !important;}
+.layout > #footer > #controls > #controlForm > #navLinks > a#toggle {display: none;}
+
+.presentation > .slide {font-family: sans-serif; font-size: 1.2em !important; color: #eee !important; padding: 0 1em !important; width: calc(100vw - 2em); height: calc(100vh - 1.2em); overflow: auto;}
+.presentation > .slide > .toc-title {display: none;}
+.presentation > .slide > h1, .presentation > .slide > h2 {position: static; margin-top: 0 !important; color: inherit !important; font-size: 1.5em;}
+.presentation > .slide img {max-width: 100%;}
+.presentation > .slide a {text-decoration: none; color: #13daec;}
+
+/* incremental content */
+.presentation > .slide .incremental {}
+.presentation > .slide .current {color: inherit !important; font-weight: bold; font-size: 1.15em; line-height: 1.15em;}
