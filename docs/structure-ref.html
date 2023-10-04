@@ -92,7 +92,7 @@ This is the basic top-level skeleton for an article file.  Most of these top-lev
 &lt;link rel="stylesheet" href="v11b1/outline.css" type="text/css" media="screen" id="outlineStyle" /&gt;
 &lt;link rel="stylesheet" href="v11b1/print.css" type="text/css" media="print" id="slidePrint" /&gt;
 &lt;link rel="stylesheet" href="v11b1/opera.css" type="text/css" media="projection" id="operaFix" /&gt;
-&lt;script src="ui/slides.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="ui/default/slides.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;/head&gt;
 </code></pre>
 
@@ -129,19 +129,19 @@ intro
 <dt class="optional">&lt;meta name="controlVis" content="<i>[value]</i>" /&gt;</dt>
 <dd>Sets the default presentation of the controls to be either <code>visible</code> or <code>hidden</code>.  The default value is <code>visible</code>.</dd>
 
-<dt class="required">&lt;link rel="stylesheet" href="ui/slides.css" type="text/css" media="projection" id="slideProj" /&gt;</dt>
+<dt class="required">&lt;link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" /&gt;</dt>
 <dd>This links to the CSS that drives the visual presentation of the slide show.  The referenced file consists of three <code>@import</code> directives that point to still other style sheets; see the <a href="filemap.html">file map</a> for more details.</dd>
 
-<dt class="required">&lt;link rel="stylesheet" href="ui/outline.css" type="text/css" media="print" id="outlineStyle" /&gt;</dt>
+<dt class="required">&lt;link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" /&gt;</dt>
 <dd>This links to the style sheet used to present the outline view of the slide show.</dd>
 
-<dt class="required">&lt;link rel="stylesheet" href="ui/print.css" type="text/css" media="print" id="slidePrint" /&gt;</dt>
+<dt class="required">&lt;link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" /&gt;</dt>
 <dd>This links to the print-medium style sheet, which contains directives that format the presentation for printing.</dd>
 
-<dt class="required">&lt;link rel="stylesheet" href="ui/opera.css" type="text/css" media="projection" id="operaFix" /&gt;</dt>
+<dt class="required">&lt;link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" /&gt;</dt>
 <dd>This links to the style sheet that allows Opera to run the slide show through Opera Show.</dd>
 
-<dt class="required">&lt;script src="ui/slides.js" type="text/javascript"&gt;&lt;/script&gt;</dt>
+<dt class="required">&lt;script src="ui/default/slides.js" type="text/javascript"&gt;&lt;/script&gt;</dt>
 <dd>This references the JavaScript file that make the slide show work.</dd>
 
 </dl>
@@ -297,7 +297,7 @@ The presentation section of the file contains one or more slides.  The contents 
 &lt;link rel="stylesheet" href="v11b1/outline.css" type="text/css" media="screen" id="outlineStyle" /&gt;
 &lt;link rel="stylesheet" href="v11b1/print.css" type="text/css" media="print" id="slidePrint" /&gt;
 &lt;link rel="stylesheet" href="v11b1/opera.css" type="text/css" media="projection" id="operaFix" /&gt;
-&lt;script src="ui/slides.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="ui/default/slides.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 
